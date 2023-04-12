@@ -27,7 +27,7 @@ public class HospitalController {
         return "vistaHospital";
     }
 
-    @PostMapping("/doctor")
+    @GetMapping("/doctor")
     public String buscarDoctorPorHospital(@RequestParam("id") String id,
                                                Model model) {
 
@@ -39,7 +39,7 @@ public class HospitalController {
         return "vistaHospitalDoctor";
     }
 
-    @PostMapping("/paciente")
+    @GetMapping("/paciente")
     public String buscarPacientePorHospital(@RequestParam("id") String id,
                                                Model model) {
 
