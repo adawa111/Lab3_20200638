@@ -34,8 +34,33 @@
 
 <!-- Content -->
 <div class="container mt-5">
-    <h1>Hola</h1>
-    <p>Aca va todo</p>
+    <div class="container px-4 py-5">
+        <h1 class="pb-2 border-bottom">Lista Pacientes del Hospital</h1>
+        <table class="table table-sm">
+            <tr>
+                <th>#</th>
+                <th>Nombre</th>
+                <th>Edad</th>
+                <th>Género</th>
+                <th>Diagnóstico</th>
+                <th>Fecha de Cita</th>
+                <th>Número de Habitación</th>
+                <th>Doctor</th>
+                <th>Hospital</th>
+            </tr>
+            <tr th:each="Paciente, i: ${listaPaciente}">
+                <td th:text="${i.index +1}"></td>
+                <td th:text="${Paciente.nombre}"></td>
+                <td th:text="${Paciente.edad}"></td>
+                <td th:text="${Paciente.genero}"></td>
+                <td th:text="${Paciente.diagnostico}"></td>
+                <td th:text="${Paciente.fecha_cita}"></td>
+                <td th:text="${Paciente.numero_habitacion}"></td>
+                <td th:text="${Paciente.doctor_id}"></td>
+                <td th:text="${Paciente.hospital_id}"></td>
+            </tr>
+        </table>
+    </div>
 </div>
 
 <!-- Optional JavaScript -->
