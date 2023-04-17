@@ -71,6 +71,6 @@ public class DoctorController {
         model.addAttribute("listaPaciente", listaPaciente);
         model.addAttribute("doctorbuscado",doctor1);
 
-        return "vistaDoctorPaciente";
+        return "vistaDoctorCita";
     }
 }

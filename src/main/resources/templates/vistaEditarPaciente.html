@@ -1,0 +1,85 @@
+!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <title>Editar Paciente</title>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">LAB3</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{'/Doctor'}">Doctores</a>
+            </li>
+            <li class="nav-item  active">
+                <a class="nav-link" th:href="@{'/Hospital'}">Hospital</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{'/Paciente'}">Paciente<span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Content -->
+<div class="container mt-5">
+    < <h2>Editar Paciente</h2>
+    <hr/>
+    <form method="post" th:action="@{/Paciente/guardar1}">
+        <input th:value="${paciente.id}" name="id" type="hidden" />
+        <div class="mb-3">
+            <label for="nombre">Nombre del Paciente</label>
+            <input th:value="${paciente.nombre}" name="nombre" type="text" class="form-control" id="nombre" readonly="readonly"/>
+        </div>
+        <div class="mb-3">
+            <label for="edad">edad</label>
+            <input th:value="${paciente.edad}" name="edad" type="text" class="form-control" id="edad" readonly="readonly"/>
+        </div>
+        <div class="mb-3">
+            <label for="genero">genero</label>
+            <input th:value="${paciente.genero}" name="genero" type="text" class="form-control" id="genero" readonly="readonly"/>
+        </div>
+        <div class="mb-3">
+            <label for="diagnostico">diagnostico</label>
+            <input th:value="${paciente.diagnostico}" name="diagnostico" type="text" class="form-control" id="diagnostico" readonly="readonly"/>
+        </div>
+        <div class="mb-3">
+            <label for="fecha_cita">Fecha de la Cita</label>
+            <input th:value="${paciente.fecha_cita}" name="fecha_cita" type="text" class="form-control" id="fecha_cita" readonly="readonly"/>
+        </div>
+        <div class="mb-3">
+            <label for="numero_habitacion">Número de la Habitación</label>
+            <input th:value="${paciente.numero_habitacion}" name="numero_habitacion" type="text" class="form-control" id="numero_habitacion"/>
+        </div>
+        <div class="mb-3">
+            <label for="doctor_id">Doctor</label>
+            <input th:value="${paciente.doctor_id}" name="doctor_id" type="text" class="form-control" id="doctor_id" readonly="readonly"/>
+        </div>
+        <div class="mb-3">
+            <label for="hospital_id">Hospital</label>
+            <input th:value="${paciente.hospital_id}" name="hospital_id" type="text" class="form-control" id="hospital_id" readonly="readonly"/>
+        </div>
+        <a th:href="@{/Paciente/listar}" class="btn btn-danger">Cancelar</a>
+        <button type="submit" class="btn btn-primary">Actualizar</button>
+    </form>
+
+</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

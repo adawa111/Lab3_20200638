@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
-    <title>Lista de Pacientes</title>
+    <title>Derivar Paciente</title>
 </head>
 <body>
 <!-- Navbar -->
@@ -34,41 +34,24 @@
 
 <!-- Content -->
 <div class="container mt-5">
-    <main>
-        <div class="container px-4 py-5">
-            <h1 class="pb-2 border-bottom">Lista Pacientes</h1>
-            <table class="table table-sm">
-                <tr>
-                    <th>#</th>
-                    <th>Nombre</th>
-                    <th>Edad</th>
-                    <th>Género</th>
-                    <th>Diagnóstico</th>
-                    <th>Fecha de Cita</th>
-                    <th>Número de Habitación</th>
-                    <th>Doctor</th>
-                    <th>Hospital</th>
-                    <th></th>
-                    <th></th>
-                </tr>
-                <tr th:each="Paciente, i: ${listaPaciente}">
-                    <td th:text="${i.index +1}"></td>
-                    <td th:text="${Paciente.nombre}"></td>
-                    <td th:text="${Paciente.edad}"></td>
-                    <td th:text="${Paciente.genero}"></td>
-                    <td th:text="${Paciente.diagnostico}"></td>
-                    <td th:text="${Paciente.fecha_cita}"></td>
-                    <td th:text="${Paciente.numero_habitacion}"></td>
-                    <td th:text="${Paciente.getNombreDoctor()}"></td>
-                    <td th:text="${Paciente.getNombreHospital()}"></td>
-                    <td><a class="btn btn-primary" th:href="@{'/Paciente/editar' + '?id=' + ${Paciente.id}}">Editar Paciente</a>
-                    </td>
-                    <td><a class="btn btn-danger" th:href="@{'/Doctor/derivar' + '?id=' + ${Paciente.id}}">Derivar Paciente</a>
-                    </td>
-                </tr>
-            </table>
+    < <h2>Derivar Paciente</h2>
+    <hr/>
+    <form method="post" th:action="@{/Paciente/guardar2}">
+        <input th:value="${paciente.id}" name="id" type="hidden" />
+        <div class="mb-3">
+            <label for="doctor_id">Derivar del doctor:</label>
+            <input th:value="${paciente.getNombreDoctor}" name="doctor_id" type="text" class="form-control" id="doctor_id" readonly="readonly"/>
         </div>
-    </main>
+        <div class="mb-3">
+            <label for="doctor">Al Doctor:</label>
+            <select id="doctor" name="doctor" class="form-control"">
+                <option th:each="Doctor : ${doctorList}" th:value="${doctor.id}" th:text="${doctor.nombre}"></option>
+            </select>
+        </div>
+        <a th:href="@{/Paciente/listar}" class="btn btn-danger">Cancelar</a>
+        <button type="submit" class="btn btn-primary">Actualizar</button>
+    </form>
+
 </div>
 
 <!-- Optional JavaScript -->
