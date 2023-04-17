@@ -63,7 +63,7 @@
                     <td th:text="${Paciente.getNombreHospital()}"></td>
                     <td><a class="btn btn-primary" th:href="@{'/Paciente/editar' + '?id=' + ${Paciente.id}}">Editar Paciente</a>
                     </td>
-                    <td><a class="btn btn-danger" th:href="@{'/Doctor/derivar' + '?id=' + ${Paciente.id}}">Derivar Paciente</a>
+                    <td><a class="btn btn-danger" th:href="@{'/Paciente/derivar' + '?id=' + ${Paciente.id}}">Derivar Paciente</a>
                     </td>
                 </tr>
             </table>
