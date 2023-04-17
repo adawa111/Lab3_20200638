@@ -34,41 +34,41 @@
 
 <!-- Content -->
 <div class="container mt-5">
-    < <h2>Editar Paciente</h2>
+    <h2>Editar Paciente</h2>
     <hr/>
     <form method="post" th:action="@{/Paciente/guardar1}">
         <input th:value="${paciente.id}" name="id" type="hidden" />
         <div class="mb-3">
             <label for="nombre">Nombre del Paciente</label>
-            <input th:value="${paciente.nombre}" name="nombre" type="text" class="form-control" id="nombre" readonly="readonly"/>
+            <input th:value="${paciente.nombre}" name="nombre" type="text" class="form-control" id="nombre" th:readonly="${true}"/>
         </div>
         <div class="mb-3">
             <label for="edad">edad</label>
-            <input th:value="${paciente.edad}" name="edad" type="text" class="form-control" id="edad" readonly="readonly"/>
+            <input th:value="${paciente.edad}" name="edad" type="text" class="form-control" id="edad" th:readonly="${true}"/>
         </div>
         <div class="mb-3">
             <label for="genero">genero</label>
-            <input th:value="${paciente.genero}" name="genero" type="text" class="form-control" id="genero" readonly="readonly"/>
+            <input th:value="${paciente.genero}" name="genero" type="text" class="form-control" id="genero" th:readonly="${true}"/>
         </div>
         <div class="mb-3">
             <label for="diagnostico">diagnostico</label>
-            <input th:value="${paciente.diagnostico}" name="diagnostico" type="text" class="form-control" id="diagnostico" readonly="readonly"/>
+            <input th:value="${paciente.diagnostico}" name="diagnostico" type="text" class="form-control" id="diagnostico" th:readonly="${true}"/>
         </div>
         <div class="mb-3">
             <label for="fecha_cita">Fecha de la Cita</label>
-            <input th:value="${paciente.fecha_cita}" name="fecha_cita" type="text" class="form-control" id="fecha_cita" readonly="readonly"/>
+            <input th:value="${paciente.fecha_cita}" name="fecha_cita" type="text" class="form-control" id="fecha_cita" th:readonly="${true}"/>
         </div>
         <div class="mb-3">
             <label for="numero_habitacion">Número de la Habitación</label>
-            <input th:value="${paciente.numero_habitacion}" name="numero_habitacion" type="text" class="form-control" id="numero_habitacion"/>
+            <input th:value="${paciente.numero_habitacion}" name="numero_habitacion" type="number" class="form-control" id="numero_habitacion"/>
         </div>
         <div class="mb-3">
             <label for="doctor_id">Doctor</label>
-            <input th:value="${paciente.doctor_id}" name="doctor_id" type="text" class="form-control" id="doctor_id" readonly="readonly"/>
+            <input th:value="${paciente.doctor_id}" name="doctor_id" type="text" class="form-control" id="doctor_id" th:readonly="${true}"/>
         </div>
         <div class="mb-3">
             <label for="hospital_id">Hospital</label>
-            <input th:value="${paciente.hospital_id}" name="hospital_id" type="text" class="form-control" id="hospital_id" readonly="readonly"/>
+            <input th:value="${paciente.hospital_id}" name="hospital_id" type="text" class="form-control" id="hospital_id" th:readonly="${true}"/>
         </div>
         <a th:href="@{/Paciente/listar}" class="btn btn-danger">Cancelar</a>
         <button type="submit" class="btn btn-primary">Actualizar</button>

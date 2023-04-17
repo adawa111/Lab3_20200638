@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -28,10 +29,12 @@ public interface PacienteRepository extends JpaRepository<Paciente,Integer> {
     @Query(nativeQuery = true, value = "select * from paciente where doctor_id =?1")
     List<Paciente> buscarPacientePorDoctorId(int id);
 
+    @Transactional
     @Modifying
     @Query(value = "UPDATE paciente set numero_habitacion =?1 WHERE id =?2", nativeQuery = true)
     void  actualizarHabitacion(int hab, int id);
 
+    @Transactional
     @Modifying
     @Query(value = "UPDATE paciente set doctor_id =?1 WHERE id =?2", nativeQuery = true)
     void  actualizarDoctor(int doc, int id);
