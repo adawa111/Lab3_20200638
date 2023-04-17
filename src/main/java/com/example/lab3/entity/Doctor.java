@@ -17,8 +17,19 @@ public class Doctor {
     @Column (name = "especialidad", nullable = false)
     private String especialidad;
 
-    @Column (name = "hospital_id")
-    private String hospital_id;
+    @Column (name = "hospital_id", nullable = false)
+    private int hospitalId;
+
+    @Transient
+    private String nombreHospital;
+
+    public String getNombreHospital() {
+        return nombreHospital;
+    }
+
+    public void setNombreHospital(String nombreHospital) {
+        this.nombreHospital = nombreHospital;
+    }
 
     public int getId() {
         return id;
@@ -44,11 +55,11 @@ public class Doctor {
         this.especialidad = especialidad;
     }
 
-    public String getHospital_id() {
-        return hospital_id;
+    public int getHospitalId() {
+        return hospitalId;
     }
 
-    public void setHospital_id(String hospital_id) {
-        this.hospital_id = hospital_id;
+    public void setHospitalId(int hospitalId) {
+        this.hospitalId = hospitalId;
     }
 }

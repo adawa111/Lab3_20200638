@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
-    <title>Hospital</title>
+    <title>Doctores del Hospital</title>
 </head>
 <body>
 <!-- Navbar -->
@@ -37,7 +37,7 @@
     <main>
         <div class="container px-4 py-5">
             <h1 class="pb-2 border-bottom">Lista Doctores del Hospital</h1>
-            <h1 class="pb-2 border bottom" style="color: #4200FF" th:text="${hospitalbuscado}"></h1>
+            <h1 class="pb-2 border bottom" style="color: #4200FF" th:text="${hospitalbuscado.nombre}"></h1>
             <table class="table table-sm">
                 <tr>
                     <th>#</th>
@@ -45,11 +45,11 @@
                     <th>Especialidad</th>
                     <th>Hospital</th>
                 </tr>
-                <tr th:each="Doctor, i: ${listaDoctor}">
+                <tr th:each="doctor, i: ${listaDoctor}">
                     <td th:text="${i.index +1}"></td>
-                    <td th:text="${Doctor.nombre}"></td>
-                    <td th:text="${Doctor.especialidad}"></td>
-                    <td th:text="${Doctor.hospital_id}"></td>
+                    <td th:text="${doctor.nombre}"></td>
+                    <td th:text="${doctor.especialidad}"></td>
+                    <td th:text="${hospitalbuscado.nombre}"></td>
                 </tr>
             </table>
         </div>

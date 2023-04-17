@@ -35,6 +35,29 @@ public class Paciente {
     @Column (name = "hospital_id", nullable = false)
     private int hospital_id;
 
+    @Transient
+    private String nombreDoctor;
+
+    @Transient
+    private String nombreHospital;
+
+
+    public String getNombreDoctor() {
+        return nombreDoctor;
+    }
+
+    public void setNombreDoctor(String nombreDoctor) {
+        this.nombreDoctor = nombreDoctor;
+    }
+
+    public String getNombreHospital() {
+        return nombreHospital;
+    }
+
+    public void setNombreHospital(String nombreHospital) {
+        this.nombreHospital = nombreHospital;
+    }
+
     public int getId() {
         return id;
     }

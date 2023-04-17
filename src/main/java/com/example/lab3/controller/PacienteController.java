@@ -20,7 +20,7 @@ public class PacienteController {
     @Autowired
     HospitalRepository hospitalRepository;
 
-    @GetMapping("/listar")
+    @GetMapping("")
     public String listarHospital(Model model) {
         List<Hospital> hospitalList = hospitalRepository.findAll();
         model.addAttribute("hospitalList", hospitalList);
@@ -31,10 +31,12 @@ public class PacienteController {
     public String buscarDoctorPorHospital(@RequestParam("id") String id,
                                           Model model) {
 
-        List<Doctor> listaDoctor = hospitalRepository.buscarDoctorPorHospital(id);
-        Hospital hospital = hospitalRepository.buscarHospitalPorId(id);
-        model.addAttribute("listaDoctor", listaDoctor);
-        model.addAttribute("hospitalbuscado",hospital.getId());
+        int iii = Integer.parseInt(id);
+        //List<Doctor> listaDoctor = hospitalRepository.buscarDoctorPorHospital(iii);
+        //Hospital hospital = hospitalRepository.buscarHospitalPorId(iii);
+        //model.addAttribute("listaDoctor", listaDoctor);
+        //model.addAttribute("hospitalbuscado",hospital.getId());
 
         return "vistaHospitalDoctor";
+}
 }
